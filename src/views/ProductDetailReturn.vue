@@ -1,8 +1,5 @@
 <template>
   <div class="return-page">
-    <aside class="return-page__sidebar">
-      <bfe-menu v-model="activeMenu" :items="menuList" />
-    </aside>
     <main class="return-page__main">
       <nav class="breadcrumb" aria-label="面包屑">
         <router-link to="/">基金产品</router-link><span>/</span
@@ -430,7 +427,6 @@
 </template>
 <script>
 import BfeTabs from "../components/BfeTabs.vue";
-import BfeMenu from "../components/BfeMenu.vue";
 import BfeSpin from "../components/BfeSpin.vue";
 import {
   getProductBaseInfo,
@@ -444,7 +440,6 @@ export default {
   name: "ProductDetailReturn",
   components: {
     BfeTabs,
-    BfeMenu,
     BfeSpin,
     BfeTabPane: {
       props: ["id", "labelledby"],
@@ -453,25 +448,6 @@ export default {
     },
   },
   data: () => ({
-    menuList: [
-      {
-        key: "investment",
-        label: "智能定投",
-        children: [
-          { key: "tools", label: "定投工具" },
-          { key: "pool", label: "智能遴选池" },
-        ],
-      },
-      {
-        key: "funds",
-        label: "公募基金",
-        children: [
-          { key: "fundProduct", label: "基金产品" },
-          { key: "fundManager", label: "基金经理" },
-        ],
-      },
-    ],
-    activeMenu: "fundProduct",
     tabList: [
       { key: "base-info", label: "基本信息" },
       { key: "return", label: "收益分析" },

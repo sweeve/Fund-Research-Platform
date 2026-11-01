@@ -4,7 +4,7 @@
       <button
         class="bfe-menu__group"
         :aria-expanded="expanded[group.key]"
-        @click="$set(expanded, group.key, !expanded[group.key])"
+        @click="toggleGroup(group.key)"
       >
         <span>⌂　{{ group.label }}</span
         ><span>{{ expanded[group.key] ? "⌃" : "⌄" }}</span>
@@ -28,8 +28,14 @@
 </template>
 <script>
 export default {
-  props: { items: Array, value: String },
+  props: { items: Array, value: String, pinnedGroup: String },
   data: () => ({ expanded: { investment: true, funds: true } }),
+  methods: {
+    toggleGroup(key) {
+      if (key !== this.pinnedGroup)
+        this.$set(this.expanded, key, !this.expanded[key]);
+    },
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -67,5 +73,13 @@ export default {
   background: var(--color-fill-2);
   color: var(--color-brand);
   font-weight: 600;
+}
+@media (max-width: 575px) {
+  .bfe-menu__item {
+    padding: 0 16px;
+  }
+  .bfe-menu__group {
+    padding: 0 6px;
+  }
 }
 </style>
