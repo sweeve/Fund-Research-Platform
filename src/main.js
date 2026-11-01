@@ -11,6 +11,10 @@ const router = new VueRouter({
   routes: [
     { path: "/", component: List },
     { path: "/fund/product/:code", component: Detail },
+    {
+      path: "/fund/product/:code/:section(base-info|return|risk|manager|allocation|bonds|indicators|announcements)",
+      component: Detail,
+    },
     { path: "*", redirect: "/" },
   ],
 });

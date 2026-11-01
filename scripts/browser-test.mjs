@@ -60,9 +60,13 @@ await page.screenshot({
   path: "docs/screenshots/fund-detail.png",
   fullPage: true,
 });
-const path = await page.locator(".series-product").getAttribute("d");
-await page.getByRole("button", { name: "近一周", exact: true }).click();
-assert.notEqual(await page.locator(".series-product").getAttribute("d"), path);
+const path = await page.locator(".return-page__product-line").getAttribute("d");
+await page.getByRole("tab", { name: "近一月", exact: true }).click();
+await page.waitForTimeout(650);
+assert.notEqual(
+  await page.locator(".return-page__product-line").getAttribute("d"),
+  path
+);
 await page.getByRole("button", { name: "♡ 关注", exact: true }).click();
 await page.getByRole("button", { name: "♥ 已关注", exact: true }).waitFor();
 await page.setViewportSize({ width: 390, height: 844 });
