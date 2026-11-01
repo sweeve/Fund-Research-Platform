@@ -1,0 +1,21 @@
+{
+  "name": "fund-research-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/vite.mjs",
+    "build": "node scripts/vite.mjs --build",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "vue": "2.7.16",
+    "vue-router": "3.6.5"
+  },
+  "devDependencies": {
+    "vite": "5.4.21",
+    "@vitejs/plugin-vue2": "2.3.4",
+    "less": "4.2.2",
+    "@playwright/test": "1.56.1"
+  }
+}
