@@ -55,8 +55,16 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.bfe-tabs {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
 .bfe-tabs__list {
   display: flex;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
   background: var(--color-bg-card);
   gap: 4px;

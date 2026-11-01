@@ -672,6 +672,9 @@ export default {
 .return-page__main {
   flex: 1;
   min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   padding: 0 24px 24px;
 }
 .breadcrumb a {
